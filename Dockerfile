@@ -100,7 +100,7 @@ RUN set -x \
     && mv /tmp/envsubst /usr/local/bin/ \
 # Bring in tzdata so users could set the timezones through the environment
 # variables
-    && apk add --no-cache tzdata supervisor\
+    && apk add --no-cache tzdata supervisor openjdk8-jre-base\
 # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
@@ -110,5 +110,3 @@ EXPOSE 80
 STOPSIGNAL SIGTERM
 
 CMD ["nginx", "-g", "daemon off;"]
-
-f
