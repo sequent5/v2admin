@@ -10,6 +10,4 @@ if expr "$1" : "supervisord" 1>/dev/null; then
    fi
 fi
 
-mv /etc/v2ray/config.json /etc/v2ray/config.json.bak \
-
 exec "$@"
