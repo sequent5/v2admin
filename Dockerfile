@@ -26,7 +26,9 @@ RUN set -eux; \
     ; \
     apk add --no-cache supervisor openjdk8-jre-base \
     ; \
-    rm -rf /etc/nginx/conf.d/default.conf
+    rm -rf /etc/nginx/conf.d/default.conf \
+    ; \
+    mkdir -p /opt/jar/db 
 
 
 COPY nginx/default.conf /etc/nginx/conf.d/
