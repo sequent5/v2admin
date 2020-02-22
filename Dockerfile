@@ -17,11 +17,13 @@ RUN set -eux; \
     ; \
     curl -L -o admin.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/admin \
     ; \
-    curl -L -O https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist \
+    curl -L -o dist.zip https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist \
     ; \
     curl -L -o v2ray-proxy.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/v2ray-proxy \
     ; \
     unzip dist.zip  -d web \
+    ; \
+    rm -rf dist.zip \
     ; \
     apk del .build-deps \
     ; \
