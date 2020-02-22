@@ -13,8 +13,6 @@ RUN set -eux; \
     ; \
     mkdir -p /opt/v2ray-manager \
     ; \
-    mkdir -p /opt/v2ray-manager/config \
-    ; \
     cd /opt/v2ray-manager \
     ; \
     curl -L -o admin.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/admin \
@@ -37,7 +35,7 @@ RUN set -eux; \
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
-COPY config/* /opt/v2ray-manager/config/
+COPY config/* /opt/v2ray-manager/
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
 COPY entrypoint.sh /
