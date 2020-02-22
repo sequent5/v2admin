@@ -40,7 +40,7 @@ COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
 COPY config/config.json /etc/v2ray/
-COPY config/*.properties /opt/v2ray-manager/config
+COPY config/*.properties /opt/v2ray-manager/config/
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
 COPY entrypoint.sh /
