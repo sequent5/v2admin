@@ -15,6 +15,8 @@ RUN set -eux; \
     ; \
     mkdir -p /opt/v2ray-manager \
     ; \
+    mkdir -p /opt/v2ray-manager/config \
+    ; \
     cd /opt/v2ray-manager \
     ; \
     curl -L -o admin.jar https://github.com/master-coder-ll/v2ray-web-manager/releases/download/v${WEB_VERSION}/admin-${WEB_VERSION}.jar \
@@ -37,7 +39,8 @@ RUN set -eux; \
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
-COPY conf/* /opt/v2ray-manager/
+COPY config/config.json /etc/v2ray/
+COPY config/*.properties /opt/v2ray-manager/config
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
 COPY entrypoint.sh /
