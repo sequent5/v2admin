@@ -1,5 +1,8 @@
 FROM nginx:alpine
 
+ENV WEB_VERSION 3.0.3
+ENV CONSOLE_VERSION 1.0.0
+
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
     unzip \
@@ -14,11 +17,11 @@ RUN set -eux; \
     ; \
     cd /opt/v2ray-manager \
     ; \
-    curl -L -o admin.jar https://github.com/master-coder-ll/v2ray-web-manager/releases/download/v3.0.2/admin-3.0.2.jar \
+    curl -L -o admin.jar https://github.com/master-coder-ll/v2ray-web-manager/releases/download/v${WEB_VERSION}/admin-${WEB_VERSION}.jar \
     ; \
-    curl -L -O https://github.com/master-coder-ll/v2ray-manager-console/releases/download/1.0.0/dist.zip \
+    curl -L -O https://github.com/master-coder-ll/v2ray-manager-console/releases/download/${CONSOLE_VERSION}/dist.zip \
     ; \
-    curl -L -o v2ray-proxy.jar https://github.com/master-coder-ll/v2ray-web-manager/releases/download/v3.0.2/v2ray-proxy-3.0.2.jar \
+    curl -L -o v2ray-proxy.jar https://github.com/master-coder-ll/v2ray-web-manager/releases/download/v${WEB_VERSION}/v2ray-proxy-${WEB_VERSION}.jar \
     ; \
     unzip dist.zip  -d web \
     ; \
