@@ -45,6 +45,10 @@ COPY supervisord/supervisord*.ini /etc/supervisor.d/
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 9091
+EXPOSE 8081
+EXPOSE 8091
+EXPOSE 62789
 
 #ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/bin/supervisord"]
