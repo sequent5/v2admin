@@ -40,11 +40,11 @@ COPY nginx/default.conf /etc/nginx/conf.d/
 ADD config /opt/v2ray-manager/config
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
+#COPY entrypoint.sh /
+#RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 EXPOSE 443
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["supervisord"]
+#ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/usr/bin/supervisord"]
