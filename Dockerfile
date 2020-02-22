@@ -11,8 +11,6 @@ RUN set -eux; \
     ; \
     curl -L -s https://install.direct/go.sh | bash \
     ; \
-#    mv /etc/v2ray/config.json /etc/v2ray/config.json.bak \
-#    ; \
     mkdir -p /opt/v2ray-manager \
     ; \
     mkdir -p /opt/v2ray-manager/config \
@@ -39,7 +37,6 @@ RUN set -eux; \
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
-#COPY config/config.json /etc/v2ray/
 COPY config/* /opt/v2ray-manager/config/
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
