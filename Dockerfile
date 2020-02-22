@@ -35,6 +35,7 @@ COPY nginx/default.conf /etc/nginx/conf.d/
 COPY conf/* /opt/v2ray-manager/
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
+COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
