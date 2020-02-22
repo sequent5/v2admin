@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM nginx:alpine
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
