@@ -11,11 +11,7 @@ RUN set -eux; \
     ; \
     curl -L -s https://install.direct/go.sh | bash \
     ; \
-    mkdir -p /opt/v2ray-manager \
-    ; \
     mkdir -p /opt/v2ray-manager/config \
-    ; \
-    mkdir -p /opt/v2ray-manager/bin \
     ; \
     cd /opt/v2ray-manager \
     ; \
@@ -31,7 +27,7 @@ RUN set -eux; \
     ; \
     apk del .build-deps \
     ; \
-    apk add --no-cache supervisor openjdk8-jre-base \
+    apk add --no-cache bash supervisor openjdk8-jre \
     ; \
     rm -rf /etc/nginx/conf.d/default.conf \
     ; \
@@ -45,8 +41,7 @@ ADD config /opt/v2ray-manager/config
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
 COPY entrypoint.sh /
-ADD bin  /opt/v2ray-manager/bin
-RUN chmod +x /entrypoint.sh && chmod +x /opt/v2ray-manager/bin/*
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 EXPOSE 443
