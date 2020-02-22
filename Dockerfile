@@ -39,7 +39,7 @@ RUN set -eux; \
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
-COPY conf/* /opt/v2ray-manager/conf
+COPY conf/* /opt/v2ray-manager/conf/
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /etc/supervisor.d/
 COPY entrypoint.sh /
