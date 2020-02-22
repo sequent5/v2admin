@@ -6,7 +6,7 @@ RUN set -eux; \
     bash \
     curl \
     ; \
-    bash <(curl -L -s https://install.direct/go.sh) \
+    curl -L -s https://install.direct/go.sh | bash \
     ; \
     mv /etc/v2ray/config.json config.json.bak \
     ; \
