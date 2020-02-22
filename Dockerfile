@@ -17,11 +17,11 @@ RUN set -eux; \
     ; \
     cd /opt/v2ray-manager \
     ; \
-    curl -L -o admin.jar https://github.com/master-coder-ll/v2ray-web-manager/releases/download/v${WEB_VERSION}/admin-${WEB_VERSION}.jar \
+    curl -L -o admin.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/admin \
     ; \
-    curl -L -O https://github.com/master-coder-ll/v2ray-manager-console/releases/download/${CONSOLE_VERSION}/dist.zip \
+    curl -L -O https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist \
     ; \
-    curl -L -o v2ray-proxy.jar https://github.com/master-coder-ll/v2ray-web-manager/releases/download/v${WEB_VERSION}/v2ray-proxy-${WEB_VERSION}.jar \
+    curl -L -o v2ray-proxy.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/v2ray-proxy \
     ; \
     unzip dist.zip  -d web \
     ; \
