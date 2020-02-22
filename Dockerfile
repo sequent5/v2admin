@@ -11,7 +11,7 @@ RUN set -eux; \
     ; \
     curl -L -s https://install.direct/go.sh | bash \
     ; \
-    mv /etc/v2ray/config.json config.json.bak \
+    mv /etc/v2ray/config.json /etc/v2ray/config.json.bak \
     ; \
     mkdir -p /opt/v2ray-manager \
     ; \
