@@ -27,7 +27,7 @@ RUN set -eux; \
     ; \
     apk del .build-deps \
     ; \
-    apk add --no-cache supervisor openjdk8-jre \
+    apk add --no-cache bash supervisor openjdk8-jre \
     ; \
     rm -rf /etc/nginx/conf.d/default.conf \
     ; \
