@@ -11,9 +11,9 @@ RUN set -eux; \
     ; \
     curl -L -s https://install.direct/go.sh | bash \
     ; \
-    mkdir -p /opt/v2ray-manager/config \
+    mkdir -p /opt/jar/db \
     ; \
-    cd /opt/v2ray-manager \
+    cd /opt/jar \
     ; \
     curl -L -o admin.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/admin \
     ; \
@@ -31,7 +31,7 @@ RUN set -eux; \
     ; \
     rm -rf /etc/nginx/conf.d/default.conf \
     ; \
-    mkdir -p /opt/jar/db \
+    mkdir -p /opt/jar/config \
     ; \
     mkdir -p /opt/supervisor.d \
     ; \
@@ -40,7 +40,7 @@ RUN set -eux; \
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
-ADD config /opt/v2ray-manager/config
+ADD config /opt/jar/config
 COPY supervisord/supervisord.conf /etc/
 COPY supervisord/supervisord*.ini /opt/supervisor.d/
 COPY entrypoint.sh /
