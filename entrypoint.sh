@@ -1,16 +1,14 @@
 #!/bin/sh
 
-
+var=($*)
 way=0
-for i in $*; do
-   if $i in proxy v2ray web; then
-      if [ "$i" = "web" ]; then
-         cp /opt/supervisor.d/supervisord_nginx.ini /etc/supervisor.d/
-      fi
-      cp /opt/supervisor.d/supervisor_$i.ini /etc/supervisor.d/
-      way=`expr $way + 1`
+array=(proxy web v2ray)
+for i in ${var[*]}; do
+   [[ ${array[@]/${i}/} != ${array[@]} ]] && cp /opt/supervisor.d/supervisord_$i.ini /etc/supervisor.d/ && way=`expr $way + 1`
+   if [ "$i" = "web" ]; then
+      cp /opt/supervisor.d/supervisord_nginx.ini /etc/supervisor.d/
    fi
-   done
+done
 
 if [ $way -ge 1 ]; then
    exec "supervisord"
