@@ -33,8 +33,9 @@ RUN set -eux; \
     ; \
     mkdir -p /opt/jar/db \
     ; \
-    mkdir -p /opt/supervisor.d
-
+    mkdir -p /opt/supervisor.d \
+    ; \
+    mkdir -p /etc/supervisor.d
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
