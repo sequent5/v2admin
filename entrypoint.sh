@@ -1,10 +1,9 @@
 #!/bin/bash
 
-var=$*
 way=0
 array=(proxy web v2ray)
 
-for i in $var; do
+for i in $*; do
    [[ ${array[@]/${i}/} != ${array[@]} ]] && cp /opt/supervisor.d/supervisord_$i.ini /etc/supervisor.d/ && way=`expr $way + 1`
    if [ "$i" = "web" ]; then
       cp /opt/supervisor.d/supervisord_nginx.ini /etc/supervisor.d/
