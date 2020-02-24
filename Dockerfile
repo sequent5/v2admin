@@ -31,7 +31,9 @@ RUN set -eux; \
     ; \
     rm -rf /etc/nginx/conf.d/default.conf \
     ; \
-    mkdir -p /opt/jar/db 
+    mkdir -p /opt/jar/db \
+    ; \
+    mkdir -p /opt/supervisor.d
 
 
 COPY nginx/default.conf /etc/nginx/conf.d/
@@ -39,16 +41,16 @@ COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.key /etc/ssl/nginx/
 ADD config /opt/v2ray-manager/config
 COPY supervisord/supervisord.conf /etc/
-COPY supervisord/supervisord*.ini /etc/supervisor.d/
-#COPY entrypoint.sh /
-#RUN chmod +x /entrypoint.sh
+COPY supervisord/supervisord*.ini /opt/supervisor.d/
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 EXPOSE 443
-EXPOSE 9091
+EXPOSE 6001
 EXPOSE 8081
-EXPOSE 8091
+EXPOSE 9091
 EXPOSE 62789
 
-#ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/bin/supervisord"]
+
+ENTRYPOINT ["/entrypoint.sh"]

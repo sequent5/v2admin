@@ -1,8 +1,19 @@
 #!/bin/sh
-set -eu
 
-if expr "$1" : "supervisord" 1>/dev/null; then
-   echo "Start v2ray and v2ray-manager ..."
+var=$*
+way=0
+for i in ${var#*supervisord}; do
+   if $i in proxy v2ray web; then
+      if [ "$i" = "web" ]; then
+         cp /opt/supervisor.d/supervisord_nginx.ini /etc/supervisor.d/
+      fi
+      cp /opt/supervisor.d/supervisor_$i.ini /etc/supervisor.d/
+      way=`expr $way + 1`
+   fi
+   done
+
+if [ $way -ge 1 ]; then
+   exec "supervisord"
+else
+   exec "$@"
 fi
-
-exec "$@"
