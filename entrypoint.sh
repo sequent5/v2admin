@@ -1,8 +1,8 @@
 #!/bin/sh
 
-var=$*
+
 way=0
-for i in ${var#*supervisord}; do
+for i in $*; do
    if $i in proxy v2ray web; then
       if [ "$i" = "web" ]; then
          cp /opt/supervisor.d/supervisord_nginx.ini /etc/supervisor.d/
