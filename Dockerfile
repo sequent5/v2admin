@@ -55,3 +55,4 @@ EXPOSE 62789
 
 
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["supervisord"]
