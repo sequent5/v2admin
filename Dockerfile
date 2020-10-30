@@ -37,7 +37,7 @@ RUN set -eux; \
     ; \
     mkdir -p /etc/supervisor.d
 
-COPY nginx/default.conf /etc/nginx/conf.d/
+COPY nginx/v2ray_manager.conf /etc/nginx/conf.d/default.conf
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
 ADD config /opt/jar/config
