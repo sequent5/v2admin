@@ -9,7 +9,7 @@ RUN set -eux; \
     bash \
     curl \
     ; \
-    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash install-release.sh \
+    curl -L -s https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash \
     ; \
     mkdir -p /opt/jar/db \
     ; \
