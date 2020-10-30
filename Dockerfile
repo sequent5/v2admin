@@ -1,5 +1,5 @@
 FROM nginx:alpine
-FROM v2fly:v2fly-core
+FROM v2fly/v2fly-core:latest
 
 ENV WEB_VERSION 3.0.3
 ENV CONSOLE_VERSION 1.0.0
