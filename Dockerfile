@@ -48,10 +48,6 @@ RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 EXPOSE 443
-EXPOSE 6001
-EXPOSE 8081
-EXPOSE 9091
-EXPOSE 62789
 
 
 ENTRYPOINT ["/entrypoint.sh"]
