@@ -1,4 +1,5 @@
 FROM nginx:alpine
+FROM v2fly:v2fly-core
 
 ENV WEB_VERSION 3.0.3
 ENV CONSOLE_VERSION 1.0.0
@@ -8,8 +9,6 @@ RUN set -eux; \
     unzip \
     bash \
     curl \
-    ; \
-    curl -L -s https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash \
     ; \
     mkdir -p /opt/jar/db \
     ; \
