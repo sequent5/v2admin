@@ -8,7 +8,6 @@ RUN set -eux; \
     unzip \
     bash \
     curl \
-    nginx \
     ; \
     mkdir -p /opt/jar/db \
     ; \
@@ -35,6 +34,10 @@ RUN set -eux; \
     mkdir -p /opt/supervisor.d \
     ; \
     mkdir -p /etc/supervisor.d
+
+RUN apk add --update --no-cache \
+    curl-dev curl nginx supervisor && \
+    mkdir /run/nginx
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
