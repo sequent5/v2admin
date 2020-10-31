@@ -10,13 +10,13 @@ proxy:
 
 email:
   #stmp地址
-  host: ${MAIL_HOST}
+  host: 
   #用户名称
-  userName: ${MAIL_USER}
+  userName: 
   #密码
-  password: ${MAIL_PWD}
+  password: 
   #端口
-  port: ${MAIL_PORT}
+  port: 
   #默认false ,邮件不支持startTls不要开启
   startTlsEnabled: false
 
