@@ -1,6 +1,6 @@
 admin:
   #第一次启动时候的账号和密码
-  email: admin@admim.com
+  email: admin@v2fly.net
   password: 12345678
 
 proxy:
