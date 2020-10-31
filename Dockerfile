@@ -9,9 +9,8 @@ RUN set -eux; \
     bash \
     curl \
     ; \
-    apt update \
-    ; \
-    apt install nginx \
+    apt update && \
+    apt install -y nginx \
     ; \
     mkdir -p /opt/jar/db \
     ; \
