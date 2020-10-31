@@ -8,9 +8,7 @@ RUN set -eux; \
     unzip \
     bash \
     curl \
-    ; \
-    apt update && \
-    apt install -y nginx \
+    nginx \
     ; \
     mkdir -p /opt/jar/db \
     ; \
