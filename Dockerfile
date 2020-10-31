@@ -1,7 +1,7 @@
 FROM v2fly/v2fly-core:latest
 
-ENV WEB_VERSION 3.0.3
-ENV CONSOLE_VERSION 1.0.0
+ENV PROXY_VERSION 3.1.8
+ENV CONSOLE_VERSION 1.1.2
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
