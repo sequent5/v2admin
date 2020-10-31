@@ -1,4 +1,3 @@
-FROM nginx:alpine
 FROM v2fly/v2fly-core:latest
 
 ENV WEB_VERSION 3.0.3
@@ -9,6 +8,9 @@ RUN set -eux; \
     unzip \
     bash \
     curl \
+    ; \
+    apt-get update && \
+    apt-get install -y nginx \
     ; \
     mkdir -p /opt/jar/db \
     ; \
