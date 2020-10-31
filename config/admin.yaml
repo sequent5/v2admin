@@ -1,11 +1,11 @@
 admin:
   #第一次启动时候的账号和密码
-  email: ${ADMIN_MAIL:admin@admin.com}
-  password: ${ADMIN_PWD:123456}
+  email: admin@admim.com
+  password: 12345678
 
 proxy:
   #与porxy交互的密码，也是各种token的私钥
-  authPassword: ${AUTH_PWD}
+  authPassword: 'v2raywebmanager'
   subscriptionTemplate: /subscribe/%s?type=%s&timestamp=%s&token=%s
 
 email:
