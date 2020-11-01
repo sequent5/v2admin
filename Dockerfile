@@ -16,7 +16,7 @@ RUN set -eux; \
     unzip dist.zip  -d web && \
     rm -rf dist.zip && \
     apk del .build-deps && \
-    apk add --no-cache bash supervisor openjdk9-jre && \
+    apk add --no-cache bash supervisor openjdk8-jre && \
     rm -rf /etc/nginx/conf.d/default.conf && \
     mkdir -p /opt/jar/config && \
     mkdir -p /opt/supervisor.d && \
