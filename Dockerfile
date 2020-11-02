@@ -8,11 +8,12 @@ ENV web_VERSION 1.1.2
 RUN  set -x && \
      echo "Asia/Shanghai" > /etc/timezone && \
      apt-get update && \
-     apt-get install -y nginx && \
+     apt-get install -y nginx curl && \
      mkdir -p /opt/jar/db && \
      cd /opt/jar && \
      curl -L -o admin.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/admin && \
      curl -L -o dist.zip https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist && \
+     apt-get remove curl && \
      unzip dist.zip  -d web && \
      rm -rf dist.zip && \
      rm -rf /etc/nginx/conf.d/default.conf && \    
