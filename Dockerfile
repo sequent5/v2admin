@@ -17,22 +17,21 @@ RUN set -eux; \
     apk del .build-deps && \
     apk add --no-cache bash supervisor openjdk8-jre && \
     rm -rf /etc/nginx/conf.d/default.conf && \
-    mkdir -p /opt/jar/config && \
-    mkdir -p /opt/supervisor.d && \
-    mkdir -p /etc/supervisor.d
+    mkdir -p /opt/jar/config 
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
 #COPY nginx/***.key /etc/ssl/nginx/
 ADD config /opt/jar/config
-COPY supervisord/supervisord.conf /etc/
-COPY supervisord/supervisord*.ini /opt/supervisor.d/
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
+ADD --chown=1000:nogroup ./init.sh /opt/jar/run.sh
+
+RUN cd /opt/jar/ && \ 
+  chmod +x /opt/jar/admin.jar && \
+  chmod +x /opt/jar/run.sh
+
 
 EXPOSE 80
 EXPOSE 443
 
-
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["supervisord"]
+WORKDIR /opt/jar/
+CMD ["/bin/sh", "run.sh"]
