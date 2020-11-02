@@ -1,10 +1,12 @@
 FROM nginx:alpine
 
+USER root
+
 ENV admin_VERSION 3.1.8
 ENV web_VERSION 1.1.2
 
-RUN set -eux; \
-    apk add --no-cache --virtual .build-deps \
+RUN set -x &&\
+    apk add --no-cache  \
     unzip \
     bash \
     curl && \
@@ -14,7 +16,6 @@ RUN set -eux; \
     curl -L -o dist.zip https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist && \
     unzip dist.zip  -d web && \
     rm -rf dist.zip && \
-    apk del .build-deps && \    
     rm -rf /etc/nginx/conf.d/default.conf && \    
     mkdir -p /opt/jar/config 
 
@@ -25,7 +26,7 @@ RUN apk add --update \
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 ADD config /opt/jar/config
-ADD --chown=1000:nogroup ./init.sh /opt/jar/run.sh
+ADD  ./init.sh /opt/jar/run.sh
 
 RUN cd /opt/jar/ && \ 
   chmod +x /opt/jar/admin.jar && \
