@@ -8,13 +8,13 @@ ENV web_VERSION 1.1.2
 RUN  set -x && \
      echo "Asia/Shanghai" > /etc/timezone && \
      apt-get update && \
-     apt-get install -y nginx curl && \
+     apt-get install -y nginx curl unzip && \
      mkdir -p /opt/jar/db && \
      cd /opt/jar && \
      curl -L -o admin.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/admin && \
-     curl -L -o dist.zip https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist && \
-     apt-get remove -y curl && \
+     curl -L -o dist.zip https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist && \     
      unzip dist.zip  -d web && \
+     apt-get remove -y curl unzip && \
      rm -rf dist.zip && \
      rm -rf /etc/nginx/conf.d/default.conf && \    
      mkdir -p /opt/jar/config 
