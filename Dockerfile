@@ -19,10 +19,9 @@ RUN set -x &&\
     rm -rf /etc/nginx/conf.d/default.conf && \    
     mkdir -p /opt/jar/config 
 
-RUN apk add --update \
-    curl \
-    openjdk8-jre=8.242.08-r0 \
- && rm /var/cache/apk/* 
+RUN apk add --update && \
+    apk add --no-cache bash supervisor openjdk8-jre && \
+    rm /var/cache/apk/* 
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 ADD config /opt/jar/config
