@@ -1,7 +1,7 @@
-FROM v2fly/v2fly-core:latest
+FROM nginx:alpine
 
-ENV PROXY_VERSION 3.1.8
-ENV CONSOLE_VERSION 1.1.2
+ENV admin_VERSION 3.1.8
+ENV web_VERSION 1.1.2
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
@@ -12,7 +12,6 @@ RUN set -eux; \
     cd /opt/jar && \
     curl -L -o admin.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/admin && \
     curl -L -o dist.zip https://glare.now.sh/master-coder-ll/v2ray-manager-console/dist && \
-    curl -L -o v2ray-proxy.jar https://glare.now.sh/master-coder-ll/v2ray-web-manager/v2ray-proxy && \
     unzip dist.zip  -d web && \
     rm -rf dist.zip && \
     apk del .build-deps && \
@@ -21,10 +20,6 @@ RUN set -eux; \
     mkdir -p /opt/jar/config && \
     mkdir -p /opt/supervisor.d && \
     mkdir -p /etc/supervisor.d
-
-RUN apk add --update --no-cache \
-    curl-dev curl nginx supervisor && \
-    mkdir /run/nginx
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 #COPY nginx/***.crt /etc/ssl/nginx/
