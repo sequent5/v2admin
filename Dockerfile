@@ -20,8 +20,6 @@ RUN set -eux; \
     mkdir -p /opt/jar/config 
 
 COPY nginx/default.conf /etc/nginx/conf.d/
-#COPY nginx/***.crt /etc/ssl/nginx/
-#COPY nginx/***.key /etc/ssl/nginx/
 ADD config /opt/jar/config
 ADD --chown=1000:nogroup ./init.sh /opt/jar/run.sh
 
