@@ -29,6 +29,7 @@ RUN cd /opt/jar/ && \
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 9091
 
 WORKDIR /opt/jar/
 CMD ["/bin/sh", "run.sh"]
