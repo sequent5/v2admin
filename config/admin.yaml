@@ -1,7 +1,7 @@
 admin:
   #第一次启动时候的账号和密码
-  email: admin@v2fly.net
-  password: 12345678
+  email: admin@admin.com
+  password: 123456
 
 proxy:
   #与porxy交互的密码，也是各种token的私钥
