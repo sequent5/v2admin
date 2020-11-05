@@ -16,7 +16,7 @@ RUN  set -x && \
      unzip dist.zip  -d web && \
      apt-get remove -y curl unzip && \
      rm -rf dist.zip && \
-     rm -rf /etc/nginx/conf.d/default.conf && \    
+     rm -rf /etc/nginx/sites-enabled/default && \    
      mkdir -p /opt/jar/config 
 
 ADD config /opt/jar/config
