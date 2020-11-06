@@ -6,7 +6,6 @@ ENV admin_VERSION 3.1.8
 ENV web_VERSION 1.1.2
 
 RUN  set -x && \
-     echo "Asia/Shanghai" > /etc/timezone && \
      apt-get update && \
      apt-get install -y nginx curl unzip && \
      mkdir -p /opt/jar/db && \
