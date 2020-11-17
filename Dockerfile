@@ -26,7 +26,6 @@ RUN cd /opt/jar/ && \
   chmod +x /opt/jar/run.sh
 
 EXPOSE 80
-EXPOSE 443
 EXPOSE 9091
 
 WORKDIR /opt/jar/
