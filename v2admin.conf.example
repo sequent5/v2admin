@@ -10,20 +10,15 @@ server {
     ssl_session_timeout 30m;
     ssl_session_cache shared:SSL:50m;
 
-    location / {
-
-      # Automatically renew SSO cookie on request
-      #  auth_request_set $auth_user $upstream_http_x_vouch_user;
-      #  proxy_set_header X-Vouch-User $auth_user; 
-
-        proxy_pass http://127.0.0.1:<v2admin 80映射端口>;
+    location / {     
+        proxy_pass http://127.0.0.1:8080;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     } 
     location /api {
-        proxy_pass http://127.0.0.1:<v2admin api 映射端口如9091>;
+        proxy_pass http://127.0.0.1:9091;
      }      
 	  error_page 404 /404.html;
             location = /40x.html {
