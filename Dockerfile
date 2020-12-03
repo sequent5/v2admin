@@ -19,14 +19,13 @@ RUN  set -x && \
      mkdir -p /opt/jar/config 
 
 ADD config /opt/jar/config
-ADD  ./init.sh /opt/jar/run.sh
+ADD  ./init.sh /opt/jar/init.sh
 
 RUN cd /opt/jar/ && \ 
   chmod +x /opt/jar/admin.jar && \
-  chmod +x /opt/jar/run.sh
+  chmod +x /opt/jar/init.sh
 
 EXPOSE 80
-EXPOSE 9091
 
 WORKDIR /opt/jar/
-CMD ["/bin/sh", "run.sh"]
+CMD ["/bin/sh", "init.sh"]
