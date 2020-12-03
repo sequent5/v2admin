@@ -19,8 +19,8 @@ RUN  set -x && \
      mkdir -p /opt/jar/config 
 
 ADD config/admin.yaml /opt/jar/config
-ADD  config/web.conf /etc/nginx/conf.d/default.conf
-ADD  ./init.sh /opt/jar/init.sh
+ADD config/web.conf /etc/nginx/conf.d/default.conf
+ADD ./init.sh /opt/jar/init.sh
 
 RUN chmod +x /opt/jar/init.sh
 
