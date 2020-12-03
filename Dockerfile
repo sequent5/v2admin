@@ -18,12 +18,11 @@ RUN  set -x && \
      rm -rf /etc/nginx/sites-enabled/default && \    
      mkdir -p /opt/jar/config 
 
-ADD config /opt/jar/config
+ADD config/admin.yaml /opt/jar/config
+ADD  config/web.conf /etc/nginx/conf.d/default.conf
 ADD  ./init.sh /opt/jar/init.sh
 
-RUN cd /opt/jar/ && \ 
-  chmod +x /opt/jar/admin.jar && \
-  chmod +x /opt/jar/init.sh
+RUN chmod +x /opt/jar/init.sh
 
 EXPOSE 80
 
