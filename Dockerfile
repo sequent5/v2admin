@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-slim
+FROM adoptopenjdk/openjdk8-openj9:x86_64-alpine-jre8u282-b04_openj9-0.24.0-m1-nightly
 
 USER root
 
